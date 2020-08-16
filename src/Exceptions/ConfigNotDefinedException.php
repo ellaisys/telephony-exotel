@@ -8,12 +8,18 @@ use Illuminate\Support\Facades\Log;
 class ConfigNotDefinedException extends Exception
 {
     /**
-     * Report or log an exception.
+     * Create exotel configuration exception instance.
+     *
+     * @param string     $message
+     * @param \Exception $previous
+     * @param array      $headers
+     * @param int        $code
      *
      * @return void
      */
-    public function report()
+    public function __construct(Exception $previous = null, $headers = [], $code = 0)
     {
-        Log::debug('Exotel SMS Config NotDefined Exception');
+        $message = 'EXCEPTION_EXOTEL_CONFIG_EXCEPTION';
+        parent::__construct(400, $message ?: 'You have some exotel exception.', $previous, $headers, $code);
     }
 }
