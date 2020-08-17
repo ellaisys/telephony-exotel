@@ -26,7 +26,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-          "Ellaisys\\Exotel\\": "src"
+          "Ellaisys\\Exotel\\": "src/"
         }
     },
     "extra": {
@@ -35,7 +35,7 @@
                 "Ellaisys\\Exotel\\ExotelServiceProvider"
             ],
             "aliases": {
-                
+                "ExotelCall": "Ellaisys\\Exotel\\Facades\\ExotelCallFacade"
             }
         },
         "branch-alias": {

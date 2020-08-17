@@ -44,14 +44,10 @@ class ExotelCall {
         $objReturnValue = null;
 
         try {
-            $configPath = base_path('packages/ellaisys/exotel/config/config.php');
-        log::info($configPath);
-
-            log::info(config('ellaisys-exotel.configuration.call'));
-
             //Set settings if it does not exists
             if (empty($settings)) {
                 $settings = [];
+                $settings['exotel_subdomain']   = config('ellaisys-exotel.configuration.sms.exotel_subdomain');
                 $settings['exotel_sid']         = config('ellaisys-exotel.configuration.sms.exotel_sid');
                 $settings['exotel_api_key']     = config('ellaisys-exotel.configuration.sms.exotel_api_key');
                 $settings['exotel_api_token']   = config('ellaisys-exotel.configuration.sms.exotel_api_token');
@@ -70,7 +66,7 @@ class ExotelCall {
             $payload['CallType']        = empty($callType)?CallType::TRANSACTIONAL:$callType;
             $payload['TimeOut']         = config('ellaisys-exotel.configuration.call.time_out');                
             $payload['MaxRetries']      = config('ellaisys-exotel.configuration.call.max_retries');
-            $payload['Record']          = config('ellaisys-exotel.configuration.call.allow_call_recording');
+            //$payload['Record']          = config('ellaisys-exotel.configuration.call.allow_call_recording');
     
             log::debug('Exotel Call Content -> '. json_encode($payload, JSON_PRETTY_PRINT));
 
@@ -80,9 +76,12 @@ class ExotelCall {
             $response = $this->makeExotelCall($urlExotelCall, $payload);
 
             $objReturnValue = $response;
+        } catch(ExotelException $e) {
+            log::error('ExotelCall:makeCall:ExotelException:' . $e->getMessage());
+            throw new ExotelException();
         } catch(Exception $e) {
-            Log::error(json_encode($e));
-            throw new NotFoundHttpException($e->getMessage());
+            log::error('ExotelCall:makeCall:Exception:' . $e->getMessage());
+            throw new Exception();
         } //Try-Catch ends
 
         return $objReturnValue;

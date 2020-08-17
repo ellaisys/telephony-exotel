@@ -18,23 +18,21 @@ class ExotelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        dd('Exotel registered');
+        $configPath = __DIR__.'/../config/config.php'; //base_path('packages/ellaisys/exotel/config/config.php');
 
-        // $configPath = base_path('packages/ellaisys/exotel/config/config.php');
-
-        // //Register configuration
-        // $this->mergeConfigFrom($configPath, 'ellaisys-exotel'); 
+        //Register configuration
+        $this->mergeConfigFrom($configPath, 'ellaisys-exotel'); 
 
         //Register the singletons
-        // $this->app->singleton(ExotelCall::class, function () {
-        //     return new ExotelCall();
-        // });
+        $this->app->singleton(ExotelCall::class, function () {
+            return new ExotelCall();
+        });
         // $this->app->singleton(ExotelSms::class, function () {
         //     return new ExotelSms();
         // });
 
         //Bind Facades
-        //$this->app->alias(ExotelCall::class, 'exotel-call');
+        $this->app->alias(ExotelCall::class, 'exotel-call');
         // $this->app->bind('exotel-call', function($app) {
         //     return new ExotelCall();
         // });

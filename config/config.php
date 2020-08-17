@@ -40,6 +40,7 @@ return [
         'exotel_date_format' => 'Y-m-d H:i:s',
         'exotel_server_timezone' => '+05:30',
 
+        'exotel_subdomain' => env('EXOTEL_SUBDOMAIN', '@api.exotel.com'),
         'exotel_sid' => env('EXOTEL_SID', 'testsid'),
         'exotel_api_key' => env('EXOTEL_API_KEY', 'exotel_api_key'),
         'exotel_api_token' => env('EXOTEL_API_TOKEN', 'exotel_api_token'),
@@ -55,7 +56,7 @@ return [
             'allow_call_recording' => env('EXOTEL_CALL_RECORDING', true),
             'time_out' => env('EXOTEL_CALL_TIMEOUT', 50),
             'max_retries' => env('EXOTEL_MAX_RETRIES', 1),
-            'endpoint' => 'https://{exotel_api_key}:{exotel_api_token}@api.exotel.com/v1/Accounts/{exotel_sid}/Calls/connect.json',
+            'endpoint' => 'https://{exotel_api_key}:{exotel_api_token}{exotel_subdomain}/v1/Accounts/{exotel_sid}/Calls/connect.json',
         ],
 
         /*
@@ -65,7 +66,7 @@ return [
          |
          */
         'sms' => [
-            'endpoint' => 'https://{exotel_api_key}:{exotel_api_token}@api.exotel.com/v1/Accounts/{exotel_sid}/Sms/send.json',
+            'endpoint' => 'https://{exotel_api_key}:{exotel_api_token}{exotel_subdomain}/v1/Accounts/{exotel_sid}/Sms/send.json',
         ],
 
         /*
@@ -75,7 +76,7 @@ return [
          |
          */
         'bulk-sms' => [
-            'endpoint' => 'https://{exotel_api_key}:{exotel_api_token}@api.exotel.com/v1/Accounts/{exotel_sid}/Sms/bulksend.json',
+            'endpoint' => 'https://{exotel_api_key}:{exotel_api_token}{exotel_subdomain}/v1/Accounts/{exotel_sid}/Sms/bulksend.json',
         ],
     ],
 ];

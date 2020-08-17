@@ -28,9 +28,12 @@ trait ExotelAction
         try {
             //Build Exotel URL
             $strURL = config($configKey);
+            $strURL = str_replace('{exotel_subdomain}', $settings['exotel_subdomain'], $strURL);
             $strURL = str_replace('{exotel_api_key}', $settings['exotel_api_key'], $strURL);
             $strURL = str_replace('{exotel_api_token}', $settings['exotel_api_token'], $strURL);
             $strURL = str_replace('{exotel_sid}', $settings['exotel_sid'], $strURL);
+
+            log::debug('Exotel URL -> '. $strURL);
 
             $returnValue = $strURL;
         } catch(Exception $e) {

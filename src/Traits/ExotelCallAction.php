@@ -42,10 +42,11 @@ trait ExotelCallAction
         } catch (ClientException $e) {
 		    Log::error(Psr7\str($e->getRequest()));
             Log::error(Psr7\str($e->getResponse()));
+            log::error('ExotelCallAction:makeExotelCall:ClientException:' . $e->getMessage());
             throw new ExotelException();
         } catch(Exception $e) {
-            Log::error(json_encode($e));
-            throw new HttpException(500);
+            log::error('ExotelCallAction:makeExotelCall:Exception:' . $e->getMessage());
+            throw new ExotelException();
         }
 	} //Function ends
 
