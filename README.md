@@ -42,22 +42,7 @@ Using a version prior to Laravel 5.5 you need to manually register the service p
 Next you can publish the config and the view.
 
 ```bash
-php artisan vendor:publish --provider="Ellaisys\Cognito\Providers\AwsCognitoServiceProvider"
-```
-Last but not least you want to change the auth driver. To do so got to your config\auth.php file and change it 
-to look the following:
-
-```
-'guards' => [
-    'web' => [
-        'driver' => 'cognito-session', // This line is important for using AWS Cognito as Web Driver
-        'provider' => 'users',
-    ],
-    'api' => [
-        'driver' => 'cognito-token', // This line is important for using AWS Cognito as API Driver
-        'provider' => 'users',
-    ],
-],
+php artisan vendor:publish --provider="Ellaisys\Exotel\Providers\ExotelServiceProvider"
 ```
 
 ## Cognito User Pool
@@ -80,9 +65,9 @@ You also need a new IAM Role with the following Access Rights:
 
 From this user you can fetch the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
 
-### Cognito API configuration
+### Exotel Telephony configuration
 
-Add the following fields to your `.env` file and set the values according to your AWS settings:
+Add the following fields to your `.env` file and set the values according to your exotel settings:
 
 ```
 # AWS configurations for cloud storage
