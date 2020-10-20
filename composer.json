@@ -1,6 +1,6 @@
 {
-    "name": "ellaisys/exotel",
-    "description": "Exotel Cloud Telephony Library",
+    "name": "ellaisys/telephony-exotel",
+    "description": "Cloud Telephony Library - Exotel",
     "keywords": ["php", "laravel", "telephony", "cloud telephony", "cti", "exotel", "ellaisys"],
     "type": "library",
     "license": "MIT",
