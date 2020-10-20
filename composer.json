@@ -4,7 +4,7 @@
     "keywords": ["php", "laravel", "telephony", "cloud telephony", "cti", "exotel", "ellaisys"],
     "type": "library",
     "license": "MIT",
-    "homepage": "https://github.com/ellaisys/exotel",
+    "homepage": "https://github.com/ellaisys/telephony-exotel",
     "authors": [
         {
             "name": "EllaiSys",

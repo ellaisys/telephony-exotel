@@ -1,15 +1,13 @@
 # Laravel Package for Exotel Telephony
-Cloud Telephony PHP based package using Exotel Services
+Cloud Telephony PHP/Laravel based package for providing Exotel Services
 
-![Latest Version on Packagist](https://img.shields.io/packagist/v/ellaisys/aws-cognito?style=flat-square)
-![Release Date](https://img.shields.io/github/release-date/ellaisys/aws-cognito?style=flat-square)
-![Total Downloads](https://img.shields.io/packagist/dt/ellaisys/aws-cognito?style=flat-square)
-![APM](https://img.shields.io/packagist/l/ellaisys/aws-cognito?style=flat-square)
+![Latest Version on Packagist](https://img.shields.io/packagist/v/ellaisys/telephony-exotel?style=flat-square)
+![Release Date](https://img.shields.io/github/release-date/ellaisys/telephony-exotel?style=flat-square)
+![Total Downloads](https://img.shields.io/packagist/dt/ellaisys/telephony-exotel?style=flat-square)
+![APM](https://img.shields.io/packagist/l/ellaisys/telephony-exotel?style=flat-square)
 
 
 This package provides a simple way to use AWS Cognito authentication in Laravel 7.x for Web and API Auth Drivers.
-The idea of this package, and some of the code, is based on the package from Pod-Point which you can find here: [Pod-Point/laravel-cognito-auth](https://github.com/Pod-Point/laravel-cognito-auth), [black-bits/laravel-cognito-auth](https://github.com/black-bits/laravel-cognito-auth) and [tymondesigns/jwt-auth](https://github.com/tymondesigns/jwt-auth).
-
 We decided to use it and contribute it to the community as a package, that encourages standarised use and a RAD tool for authentication using AWS Cognito. 
 
 Currently we have the following features implemented in our package:
@@ -17,12 +15,6 @@ Currently we have the following features implemented in our package:
 - Registration and Confirmation E-Mail
 - Login
 - Remember Me Cookie
-- Single Sign On
-- Forgot Password
-- User Deletion
-- Edit User Attributes
-- Reset User Password
-- Confirm Sign Up
 
 ### Disclaimer
 _This package is currently in development and is not production ready._
@@ -32,7 +24,7 @@ _This package is currently in development and is not production ready._
 You can install the package via composer.
 
 ```bash
-composer require ellaisys/aws-cognito
+composer require ellaisys/telephony-exotel
 ```
 
 #### Laravel 5.4 and before
@@ -42,7 +34,7 @@ Using a version prior to Laravel 5.5 you need to manually register the service p
 // config/app.php
 'providers' => [
     ...
-    Ellaisys\Cognito\Providers\AwsCognitoServiceProvider::class,
+    Ellaisys\Exotel\Providers\ExotelServiceProvider::class,
     
 ];
 ```
