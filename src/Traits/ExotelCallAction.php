@@ -5,13 +5,13 @@ namespace Ellaisys\Exotel\Traits;
 use Config;
 use Illuminate\Support\Facades\Log;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\ResponseInterface;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\RequestException;
 
 use Exception;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -30,7 +30,7 @@ trait ExotelCallAction
 	public function makeExotelCall(string $url, $data) {
 
         try {
-        	$client = new \GuzzleHttp\Client();
+        	$client = new GuzzleHttpClient();
 			$response = $client->post($url, ['http_errors' => false, 'form_params' => $data]);
 
             if($response->getStatusCode()!=200) {

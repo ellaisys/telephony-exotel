@@ -22,8 +22,31 @@ class ExotelCall {
     use ExotelAction;
     use ExotelCallAction;
 
+
+    /**
+     * Exotel Settings
+     *
+     * @var \array|null
+     */
+    protected $settings;
+
+    
+    /**
+     * Default Constructor.
+     *
+     * @return void
+     */
+    public function __construct(array $settings)
+    {
+        $this->settings = $settings;
+    }
+
+
+    /**
+     * Static Method
+     */
     public static function dial(string $numberFrom,  string $numberTo, string $callerId,
-        array $settings, string $callbackUrl=null, $callType=null)
+        array $settings=null, string $callbackUrl=null, $callType=null)
     {
         return (new static())->makeCall(
             $numberFrom,  $numberTo, $callerId, 
@@ -38,7 +61,7 @@ class ExotelCall {
     * @return array objReturnValue
     */
     public function makeCall(string $numberFrom, string $numberTo, string $callerId, 
-        array $settings, string $callbackUrl=null, $callType=null
+        array $settings=null, string $callbackUrl=null, $callType=null
     )
     {
         $objReturnValue = null;
@@ -46,11 +69,7 @@ class ExotelCall {
         try {
             //Set settings if it does not exists
             if (empty($settings)) {
-                $settings = [];
-                $settings['exotel_subdomain']   = config('ellaisys-exotel.configuration.sms.exotel_subdomain');
-                $settings['exotel_sid']         = config('ellaisys-exotel.configuration.sms.exotel_sid');
-                $settings['exotel_api_key']     = config('ellaisys-exotel.configuration.sms.exotel_api_key');
-                $settings['exotel_api_token']   = config('ellaisys-exotel.configuration.sms.exotel_api_token');
+                $settings = $this->settings;
 
                 if (! isset($settings)) {
                     throw new ConfigNotDefinedException('Exotel call config not defined');

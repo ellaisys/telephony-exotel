@@ -1,13 +1,10 @@
 {
     "name": "ellaisys/exotel",
     "description": "Exotel Cloud Telephony Library",
-    "keywords": [
-        "cloud telephony api",
-        "exotel"
-    ],
+    "keywords": ["php", "laravel", "telephony", "cloud telephony", "cti", "exotel", "ellaisys"],
     "type": "library",
     "license": "MIT",
-    "homepage": "https://ellaisys.github.io/",
+    "homepage": "https://github.com/ellaisys/exotel",
     "authors": [
         {
             "name": "EllaiSys",
@@ -17,12 +14,13 @@
         }
     ],
     "require": {
-        "php": "^7.2.5",
-        "guzzlehttp/guzzle": "^6.3"
+        "php": "^7.0",
+        "guzzlehttp/guzzle": "^6.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5"
     },
+    "prefer-stable": true,
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
@@ -32,7 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ellaisys\\Exotel\\ExotelServiceProvider"
+                "Ellaisys\\Exotel\\Providers\\ExotelServiceProvider"
             ],
             "aliases": {
                 "ExotelCall": "Ellaisys\\Exotel\\Facades\\ExotelCallFacade"

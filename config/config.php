@@ -40,6 +40,14 @@ return [
         'exotel_date_format' => 'Y-m-d H:i:s',
         'exotel_server_timezone' => '+05:30',
 
+        /*
+         |--------------------------------------------------------------------------
+         | This option controls the default setting as per the data received from
+         | the cloud telephony provider (Exotel).
+         | 
+         |--------------------------------------------------------------------------
+         |
+         */
         'exotel_subdomain' => env('EXOTEL_SUBDOMAIN', '@api.exotel.com'),
         'exotel_sid' => env('EXOTEL_SID', 'testsid'),
         'exotel_api_key' => env('EXOTEL_API_KEY', 'exotel_api_key'),
