@@ -36,9 +36,11 @@ class ExotelCall {
      *
      * @return void
      */
-    public function __construct(array $settings)
+    public function __construct(array $settings=null)
     {
-        $this->settings = $settings;
+        if (!empty($settings)) {
+            $this->settings = $settings;
+        } //End if        
     }
 
 
