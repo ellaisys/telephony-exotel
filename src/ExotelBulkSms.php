@@ -57,9 +57,9 @@ class ExotelBulkSms {
             //Set settings if it does not exists
             if (empty($settings)) {
                 $settings = [];
-                $settings['exotel_sid']         = config('ellaisys-exotel.configuration.sms.exotel_sid');
-                $settings['exotel_api_key']     = config('ellaisys-exotel.configuration.sms.exotel_api_key');
-                $settings['exotel_api_token']   = config('ellaisys-exotel.configuration.sms.exotel_api_token');
+                $settings['exotel_sid']         = config('exotel.configuration.sms.exotel_sid');
+                $settings['exotel_api_key']     = config('exotel.configuration.sms.exotel_api_key');
+                $settings['exotel_api_token']   = config('exotel.configuration.sms.exotel_api_token');
 
                 if (! isset($settings)) {
                     throw new ConfigNotDefinedException('Exotel Sms Config not defined');
@@ -81,7 +81,7 @@ class ExotelBulkSms {
                 log::debug('Message Content -> '. json_encode($payload, JSON_PRETTY_PRINT));
 
                 //Build Exotel Bulk SMS URL
-                $urlExotelSMS = $this->getExotelURL('ellaisys-exotel.configuration.bulk-sms.endpoint', $settings);
+                $urlExotelSMS = $this->getExotelURL('exotel.configuration.bulk-sms.endpoint', $settings);
 
                 //Send Request With Data
                 $response = $this->sendMessage($urlExotelSMS, $payload);
@@ -131,9 +131,9 @@ class ExotelBulkSms {
             //Set settings if it does not exists
             if (empty($settings)) {
                 $settings = [];
-                $settings['exotel_sid']         = config('ellaisys-exotel.configuration.sms.exotel_sid');
-                $settings['exotel_api_key']     = config('ellaisys-exotel.configuration.sms.exotel_api_key');
-                $settings['exotel_api_token']   = config('ellaisys-exotel.configuration.sms.exotel_api_token');
+                $settings['exotel_sid']         = config('exotel.configuration.sms.exotel_sid');
+                $settings['exotel_api_key']     = config('exotel.configuration.sms.exotel_api_key');
+                $settings['exotel_api_token']   = config('exotel.configuration.sms.exotel_api_token');
 
                 if (! isset($settings)) {
                     throw new ConfigNotDefinedException('Exotel Sms Config not defined');
@@ -154,7 +154,7 @@ class ExotelBulkSms {
                 log::debug('Message Content -> '. json_encode($payload, JSON_PRETTY_PRINT));
 
                 //Build Exotel Bulk SMS URL
-                $urlExotelSMS = $this->getExotelURL('ellaisys-exotel.configuration.bulk-sms.endpoint', $settings);
+                $urlExotelSMS = $this->getExotelURL('exotel.configuration.bulk-sms.endpoint', $settings);
 
                 //Send Request With Data
                 $response = $this->sendMessage($urlExotelSMS, $payload);

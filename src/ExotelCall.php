@@ -85,14 +85,14 @@ class ExotelCall {
             $payload['CallerId']        = $callerId;
             $payload['StatusCallback']  = $callbackUrl;
             $payload['CallType']        = empty($callType)?CallType::TRANSACTIONAL:$callType;
-            $payload['TimeOut']         = config('ellaisys-exotel.configuration.call.time_out');                
-            $payload['MaxRetries']      = config('ellaisys-exotel.configuration.call.max_retries');
-            //$payload['Record']          = config('ellaisys-exotel.configuration.call.allow_call_recording');
+            $payload['TimeOut']         = config('exotel.configuration.call.time_out');                
+            $payload['MaxRetries']      = config('exotel.configuration.call.max_retries');
+            //$payload['Record']          = config('exotel.configuration.call.allow_call_recording');
     
             log::debug('Exotel Call Content -> '. json_encode($payload, JSON_PRETTY_PRINT));
 
             //Build Exotel Call URL
-            $urlExotelCall = $this->getExotelURL('ellaisys-exotel.configuration.call.endpoint', $settings);
+            $urlExotelCall = $this->getExotelURL('exotel.configuration.call.endpoint', $settings);
 
             $response = $this->makeExotelCall($urlExotelCall, $payload);
 

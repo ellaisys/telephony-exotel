@@ -52,11 +52,11 @@ class ExotelServiceProvider extends ServiceProvider
 
         //Publish config
         $this->publishes([
-            $path => config_path('ellaisys-exotel.php'),
+            $path => config_path('exotel.php'),
         ], 'config');
 
         //Register configuration
-        $this->mergeConfigFrom($path, 'ellaisys-exotel');
+        $this->mergeConfigFrom($path, 'exotel');
 
     }
 
@@ -82,10 +82,10 @@ class ExotelServiceProvider extends ServiceProvider
     {
         //Load exotel settings from configuration file
         $exotelSettings = [
-            'exotel_subdomain'  => config('ellaisys-exotel.configuration.sms.exotel_subdomain'),
-            'exotel_sid'        => config('ellaisys-exotel.configuration.sms.exotel_sid'),
-            'exotel_api_key'    => config('ellaisys-exotel.configuration.sms.exotel_api_key'),
-            'exotel_api_token'  => config('ellaisys-exotel.configuration.sms.exotel_api_token'),
+            'exotel_subdomain'  => config('exotel.configuration.sms.exotel_subdomain'),
+            'exotel_sid'        => config('exotel.configuration.sms.exotel_sid'),
+            'exotel_api_key'    => config('exotel.configuration.sms.exotel_api_key'),
+            'exotel_api_token'  => config('exotel.configuration.sms.exotel_api_token'),
         ];
 
         //Call Manager
